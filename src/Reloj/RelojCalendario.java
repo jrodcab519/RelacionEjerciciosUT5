@@ -1,7 +1,7 @@
 package Reloj;
 
-public class RelojCalendario extends Reloj{
-    private  int dias;
+public class RelojCalendario extends Reloj {
+    private int dias;
     private int mes;
     private int anyo;
 
@@ -24,51 +24,51 @@ public class RelojCalendario extends Reloj{
         return anyo;
     }
 
-    private void setMes(int mes) throws IllegalArgumentException{
-        if (mes >= 1 && mes <= 12){
-            this.mes = mes;}
-        else{
+    private void setMes(int mes) throws IllegalArgumentException {
+        if (mes >= 1 && mes <= 12) {
+            this.mes = mes;
+        } else {
             throw new IllegalArgumentException("El mes debe ser un número entre 1 y 12");
         }
     }
 
-    private void setDia(int dias) throws IllegalArgumentException{
-        boolean bisiesto = anyo % 4 == 0 && (anyo % 100 !=0) || (anyo % 400 == 0);
-        switch (this.mes){
-            case 1,3,5,7,8,10,12:
-                if(dias >= 1 && dias <= 31){
+    private void setDia(int dias) throws IllegalArgumentException {
+        boolean bisiesto = anyo % 4 == 0 && (anyo % 100 != 0) || (anyo % 400 == 0);
+        switch (this.mes) {
+            case 1, 3, 5, 7, 8, 10, 12:
+                if (dias >= 1 && dias <= 31) {
                     this.dias = dias;
-                }else
+                } else
                     throw new IllegalArgumentException("El día debe ser un número entre 1 y 31");
                 break;
             case 2:
-                if(bisiesto){
-                    if(dias >= 1 && dias <= 29){
+                if (bisiesto) {
+                    if (dias >= 1 && dias <= 29) {
                         this.dias = dias;
-                    }else {
+                    } else {
                         throw new IllegalArgumentException("El día debe ser un número entre 1 y 29");
                     }
-                }
-                else{
-                    if(dias >= 1 && dias <= 28){
+                } else {
+                    if (dias >= 1 && dias <= 28) {
                         this.dias = dias;
-                    }else{
-                        throw new IllegalArgumentException("El día debe ser un número entre 1 y 28");}
+                    } else {
+                        throw new IllegalArgumentException("El día debe ser un número entre 1 y 28");
+                    }
                 }
                 break;
-            case 4,6,9,11:
-                if(dias >= 1 && dias <= 30){
+            case 4, 6, 9, 11:
+                if (dias >= 1 && dias <= 30) {
                     this.dias = dias;
-                }else
+                } else
                     throw new IllegalArgumentException("El día debe ser un número entre 1 y 28");
                 break;
         }
     }
 
-    private void setAnyo(int anyo) throws IllegalArgumentException{
-        if (anyo >= 1){
-            this.anyo = anyo;}
-        else{
+    private void setAnyo(int anyo) throws IllegalArgumentException {
+        if (anyo >= 1) {
+            this.anyo = anyo;
+        } else {
             throw new IllegalArgumentException("El anyo debe ser un número mayor de 1");
         }
     }
@@ -86,8 +86,16 @@ public class RelojCalendario extends Reloj{
 
     @Override
     public void incrementaSegundos(int numSeg) {
-        boolean bisiesto = anyo % 4 == 0 && (anyo % 100 !=0) || (anyo % 400 == 0);
+        boolean bisiesto = anyo % 4 == 0 && (anyo % 100 != 0) || (anyo % 400 == 0);
+
+        int segundos = getSegundos() + numSeg;
+        int minutos = getMinutos() + segundos / 60;
+        int horas = getHoras() + minutos / 60;
+        int incrementoDias = horas / 24;
+
         super.incrementaSegundos(numSeg);
+
+        dias += incrementoDias;
 
     }
 }
