@@ -2,7 +2,7 @@ package Reloj;
 
 public class RelojPrincipal {
     public static void main(String[] args) {
-        Reloj r = new Reloj(23,59,58);
+        RelojBinario r = new RelojBinario(23,59,58);
 
         System.out.println(r);
         r.incrementaSegundos();
@@ -20,11 +20,15 @@ public class RelojPrincipal {
         r1.incrementaSegundos(1000);
         System.out.println(r1);
 
-        RelojCalendario r2 = new RelojCalendario(23,59,58, 28, 2, 1980);
+        RelojCalendario r2 = new RelojCalendario(23,59,59, 28, 2, 1980);
         System.out.println(r2);
         r2.incrementaSegundos();
         System.out.println(r2);
         r2.incrementaSegundos(3);
         System.out.println(r2);
+
+        System.out.println(r1);
+        System.out.println(r2);
+        System.out.println(r2.diferenciaSegundos(r1));
     }
 }

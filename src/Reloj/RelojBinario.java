@@ -34,4 +34,9 @@ public class RelojBinario extends Reloj {
                          +"0".repeat(6 - segundosBinario.length()) + segundosBinario;
         return cadena;
     }
+
+    @Override
+    public void dibujar() {
+        System.out.println("|%02d%s|%02d%s|%02d%s");
+    }
 }

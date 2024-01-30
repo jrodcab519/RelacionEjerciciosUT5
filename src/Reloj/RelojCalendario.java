@@ -1,6 +1,6 @@
 package Reloj;
 
-public class RelojCalendario extends Reloj {
+public class RelojCalendario extends Reloj{
     private int dias;
     private int mes;
     private int anyo;
@@ -128,5 +128,10 @@ public class RelojCalendario extends Reloj {
                 anyo += 1;
             }
         }while(incrementoDias > 0);
+    }
+
+    @Override
+    public void dibujar() {
+
     }
 }

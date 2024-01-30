@@ -1,6 +1,6 @@
 package Reloj;
 
-public class Reloj {
+public abstract class Reloj implements Dibujable{
 
     private int horas;
     private int minutos;
@@ -86,5 +86,12 @@ public class Reloj {
     public String toString() {
         String cadena = String.format("%02d:%02d:%02d", horas, minutos, segundos);
         return cadena;
+    }
+
+    public long diferenciaSegundos(Reloj r){
+        long dif_horas = this.horas - r.horas;
+        long dif_min = this.minutos - r.minutos;
+        long dif_seg = this.segundos - r.segundos;
+        return dif_horas * 3600 + dif_min * 60 + dif_seg;
     }
 }
