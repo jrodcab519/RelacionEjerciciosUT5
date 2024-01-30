@@ -37,6 +37,13 @@ public class RelojBinario extends Reloj {
 
     @Override
     public void dibujar() {
-        System.out.println("|%02d%s|%02d%s|%02d%s");
+        System.out.printf("|%02d%s|%02d%s|%02d%s|\n",
+                getHoras(),
+                Character.toString(0x2800 + getHoras()),
+                getMinutos(),
+                Character.toString(0x2800 + getMinutos()),
+                getSegundos(),
+                Character.toString(0x2800 + getSegundos())
+        );
     }
 }

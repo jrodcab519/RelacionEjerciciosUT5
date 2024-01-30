@@ -132,6 +132,16 @@ public class RelojCalendario extends Reloj{
 
     @Override
     public void dibujar() {
+        String fecha = getDia() +
+                " del " + getMes() + " de " +
+                getAnyo();
 
+        int rellenoIzda = (fecha.length() - 8) / 2;
+        System.out.println("╭─" + "─".repeat(fecha.length()) + "─╮");
+        System.out.println("│ " + fecha + " |");
+        System.out.println("│ " + " ".repeat(rellenoIzda) + super.toString() +
+                " ".repeat(fecha.length() - rellenoIzda - 8) + " |");
+        System.out.println("└─" + "─".repeat(fecha.length()) + "─┘" );
     }
 }
+
