@@ -20,7 +20,7 @@ public class RelojPrincipal {
         r1.incrementaSegundos(1000);
         System.out.println(r1);
 
-        RelojCalendario r2 = new RelojCalendario(23,59,58, 28, 2, 1981);
+        RelojCalendario r2 = new RelojCalendario(23,59,58, 28, 2, 1980);
         System.out.println(r2);
         r2.incrementaSegundos();
         System.out.println(r2);

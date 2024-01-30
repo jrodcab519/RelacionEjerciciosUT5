@@ -7,8 +7,8 @@ public class RelojCalendario extends Reloj {
 
     public RelojCalendario(int horas, int minutos, int segundos, int dias, int mes, int anyo) throws IllegalArgumentException {
         super(horas, minutos, segundos);
-        setMes(mes);
         setAnyo(anyo);
+        setMes(mes);
         setDia(dias);
     }
 
@@ -97,5 +97,36 @@ public class RelojCalendario extends Reloj {
 
         dias += incrementoDias;
 
+        do {
+            if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
+                incrementoDias -= 31;
+                if(dias > 31){
+                dias = 1;
+                mes += 1;}
+            }
+            if (mes == 2) {
+                if (bisiesto) {
+                    incrementoDias -= 29;
+                    if(dias > 29){
+                    dias = 1;
+                    mes += 1;}
+                } else {
+                    incrementoDias -= 28;
+                    if(dias > 28){
+                    dias = 1;
+                    mes += 1;}
+                }
+            }
+            if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+                incrementoDias -= 30;
+                if(dias > 30){
+                dias = 1;
+                mes += 1;}
+            }
+            if (mes == 13) {
+                mes = 1;
+                anyo += 1;
+            }
+        }while(incrementoDias > 0);
     }
 }
