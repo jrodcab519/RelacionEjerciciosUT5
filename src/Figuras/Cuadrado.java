@@ -9,4 +9,9 @@ public class Cuadrado extends ParalelogramoTodosLados {
     public void dibujar() {
         System.out.println("◻");
     }
+
+    @Override
+    public String toString() {
+        return  super.toString() + " - Cuadrado de lado " + getLado();
+    }
 }
