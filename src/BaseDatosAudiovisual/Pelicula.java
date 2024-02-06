@@ -33,8 +33,8 @@ public class Pelicula extends ObraAudiovisual{
     }
 
     @Override
-    public void asignarPuntuacion(int numero) {
-        super.asignarPuntuacion(numero);
+    public int asignarPuntuacion(int numero) throws IllegalArgumentException {
+        return super.asignarPuntuacion(numero);
     }
 
     @Override

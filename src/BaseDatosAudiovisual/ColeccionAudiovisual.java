@@ -3,7 +3,7 @@ package BaseDatosAudiovisual;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ColeccionAudiovisual implements TieneValoracion {
+public abstract class ColeccionAudiovisual implements TieneValoracion {
     private String descripcion;
     ArrayList<ObraAudiovisual>obras;
 
@@ -28,6 +28,7 @@ public class ColeccionAudiovisual implements TieneValoracion {
         return descripcion;
     }
 
+
     public void setDescripcion(String descripcion) throws IllegalArgumentException {
         if (descripcion.isEmpty()){
             throw new IllegalArgumentException("La descripción no puede estar vacía");
@@ -43,13 +44,44 @@ public class ColeccionAudiovisual implements TieneValoracion {
 
     @Override
     public double obtenerValoracion() {
-        if(obras.isEmpty()){
-            return 0;
-        }
         double media = 0;
         for (ObraAudiovisual obra : obras) {
             media += obra.obtenerValoracion();
         }
         return media / obras.size();
+    }
+
+    public ObraAudiovisual mejorValorada(){
+        ObraAudiovisual mej = null;
+        for(ObraAudiovisual o : obras){
+            if(mej == null){
+              mej = o;
+            }else{
+                if(mej.obtenerValoracion() < o.obtenerValoracion()){
+                    mej = o;
+                }
+            }
+        }return mej;
+    }
+    public ObraAudiovisual peorValorada(){
+        ObraAudiovisual pe = null;
+        for(ObraAudiovisual o : obras){
+            if(pe == null){
+                pe = o;
+            }else{
+                if(pe.obtenerValoracion() > o.obtenerValoracion()){
+                    pe = o;
+                }
+            }
+        }return pe;
+    }
+
+    public List<ObraAudiovisual> obrasDuracionMaxima(int duracion){
+        List<ObraAudiovisual> max = new ArrayList<>();
+        for(ObraAudiovisual o : obras){
+            if(o.getDuracion() <= duracion){
+            max.add(o);
+            }
+        }return max;
     }
 }
