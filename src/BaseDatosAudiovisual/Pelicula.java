@@ -1,7 +1,6 @@
 package BaseDatosAudiovisual;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Pelicula extends ObraAudiovisual{
 
@@ -31,5 +30,16 @@ public class Pelicula extends ObraAudiovisual{
                 ", Actores principales=" + ActoresPrincipales +
                 ", Generos=" + Generos +
                 "} " ;
+    }
+
+    @Override
+    public void asignarPuntuacion(int numero) {
+        super.asignarPuntuacion(numero);
+    }
+
+    @Override
+    public double obtenerValoracion() {
+
+        return 0;
     }
 }

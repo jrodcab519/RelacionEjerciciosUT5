@@ -2,7 +2,7 @@ package BaseDatosAudiovisual;
 
 import java.util.Objects;
 
-public class ObraAudiovisual implements Puntuable, TieneValoracion{
+public abstract class ObraAudiovisual implements Puntuable, TieneValoracion{
     private String titulo;
     private int duracion;
 

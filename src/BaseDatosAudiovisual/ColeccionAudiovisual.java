@@ -24,13 +24,6 @@ public class ColeccionAudiovisual implements TieneValoracion {
         obras.remove(obra);
     }
 
-    public void anadirObras(){
-
-    }
-    public void eliminarObras(){
-
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
@@ -46,5 +39,17 @@ public class ColeccionAudiovisual implements TieneValoracion {
     public List<ObraAudiovisual> getObras() {
 
         return List.copyOf(obras);
+    }
+
+    @Override
+    public double obtenerValoracion() {
+        if(obras.isEmpty()){
+            return 0;
+        }
+        double media = 0;
+        for (ObraAudiovisual obra : obras) {
+            media += obra.obtenerValoracion();
+        }
+        return media / obras.size();
     }
 }

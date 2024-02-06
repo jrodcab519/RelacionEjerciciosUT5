@@ -48,4 +48,15 @@ public class Disco extends ObraAudiovisual{
             this.anioPublicacion = anioPublicacion;
         }
     }
+
+    @Override
+    public void asignarPuntuacion(int numero) {
+        super.asignarPuntuacion(numero);
+    }
+
+    @Override
+    public double obtenerValoracion() {
+
+        return 0;
+    }
 }
